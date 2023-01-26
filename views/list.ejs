@@ -1,0 +1,42 @@
+<%-include("partials/header");-%>
+<div class="container-fluid d-inline-flex justify-content-center p-5">
+    <div class="card mb-3 mt-5" style="max-width: 950px;">
+        <div class="card-body">
+            <div class="heading mb-3">
+              <h1 class="card-title p-2 fs-2"><%=listTitle%></h1>
+            </div>
+
+            <form class="d-flex justify-content-center align-items-center mb-4" action="/list" method="post">
+                <div class="flex-fill">
+                    <input type="text" class="form-control" placeholder="New task..." name="item" autocomplete="off" required>
+                </div>
+                <button type="submit" class="btn btn-success ms-2">Add</button>
+            </form>
+            <form action="/checked" method="post">
+              <ul class="list-group">
+                <% items.uncheckedItems.forEach(function(item){ %>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <input class="form-check-input me-2" type="checkbox" name="itemIndex" value="<%= items.uncheckedItems.indexOf(item) %>" onchange="this.form.submit()">
+                      <span><%= item %></span>
+                    </div>
+                    <button disabled="disabled" style="background: none; border: none;"><i class="fas fa-times text-dark"></i></button>
+                  </li>
+                <% }); %>
+              </form>
+              <form action="/delete" method="post">
+                <% items.checkedItems.forEach(function(item){ %>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." checked>
+                      <s><%= item %></s>
+                    </div>
+                    <button type="submit" style="background: none; border: none;" name="itemIndex" value="<%= items.checkedItems.indexOf(item) %>"><i class="fas fa-times text-dark"></i></button>
+                  </li>
+                <% }); %>
+              </ul>
+            </form>
+        </div>
+    </div>
+  </div>
+<%-include("partials/footer");-%>

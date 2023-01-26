@@ -1,0 +1,44 @@
+<%-include("partials/header");-%>
+
+<div class="container-fluid d-inline-flex justify-content-center p-5">
+  <div class="card mb-3 mt-5" style="max-width: 950px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="images/ToDoList-logos_transparent.png" class="img-fluid rounded-start" alt="logo">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <% if(error){ %>
+            <div class="card-title alert alert-danger" role="alert">
+              <%= error %>
+            </div>
+          <% } %>
+          <form action="/register" method="post">
+            <div class="form-floating mb-3 mt-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="must be a valid email id">
+              <label for="floatingInput" class="text-dark">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+              <label for="floatingPassword" class="text-dark">Password</label>
+            </div>
+            <div class="d-grid col-6 mx-auto mt-3">
+              <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+            </div>
+
+            <div class="divider d-flex align-items-center my-4">
+              <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+            </div>
+            
+            <div class="d-grid col-6 mx-auto">
+              <a href="/auth/google" role="button" class="btn btn-danger btn-lg"><i class="fa-brands fa-google me-2"></i>Sign Up with Google</a>  
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%-include("partials/footer");-%>

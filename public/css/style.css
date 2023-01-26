@@ -1,0 +1,51 @@
+body{
+    background-color: #567189;
+    color: white;
+}
+
+.title-heading{
+    margin: 5rem auto 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+.parent{
+    position: relative;
+}
+
+.col-lg-4{
+    margin: auto;
+}
+
+.nav-link{
+    margin: auto 5px;
+}
+
+.steps{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 2px;
+background: grey;
+}
+
+.heading{
+    text-align: center; 
+    background-color: #567189;
+    border: 1px solid white;
+    border-radius: 12px;
+}
+
+input:checked+span {
+    text-decoration: line-through;
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+}
